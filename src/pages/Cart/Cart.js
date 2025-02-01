@@ -92,7 +92,7 @@ const Cart = () => {
                 </p>
               </div>
               <div className="flex justify-end">
-                <Link to="/paymentgateway">
+                <Link to="/metodo_de_pagamento">
                   <button className="w-52 h-10 bg-primeColor text-white hover:bg-black duration-300">
                     Fazer o Checkout
                   </button>
@@ -123,7 +123,7 @@ const Cart = () => {
             Seu carrinho de compras vive para servir. Dê-lhe um propósito - preencha-o com
             bolos, doces e bebidas, e faça-o feliz.
             </p>
-            <Link to="/shop">
+            <Link to="/loja">
               <button className="bg-primeColor rounded-md cursor-pointer hover:bg-black active:bg-gray-900 px-8 py-2 font-titleFont font-semibold text-lg text-gray-200 hover:text-white duration-300">
                 Continuar Comprando
               </button>

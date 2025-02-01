@@ -54,7 +54,7 @@ const SignIn = () => {
             <h1 className="font-titleFont text-xl font-medium">
             Fique conectado para mais
             </h1>
-            <p className="text-base">Ao fazer login, você está conosco!</p>
+            <p className="text-base">Experimente o melhor da confeitaria francesa sem compromisso. Sabores incríveis esperam por você! 🥖🍩</p>
           </div>
           <div className="w-[300px] flex items-start gap-3">
             <span className="text-green-500 mt-1">
@@ -62,11 +62,10 @@ const SignIn = () => {
             </span>
             <p className="text-base text-gray-300">
               <span className="text-white font-semibold font-titleFont">
-                Comece rapidamente com LaPatisserieComece rapidamente com LaPatisserie
+                Comece rapidamente com La Pâtisserie
               </span>
               <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
-              nisi dolor recusandae consectetur!
+              Acesse nossa loja online e desfrute dos melhores bolos e doces franceses, feitos com carinho e entregues com rapidez! 🍰✨
             </p>
           </div>
           <div className="w-[300px] flex items-start gap-3">
@@ -75,11 +74,10 @@ const SignIn = () => {
             </span>
             <p className="text-base text-gray-300">
               <span className="text-white font-semibold font-titleFont">
-                Acesse todos os serviços da LaPatisserie
+                Acesse todos os serviços da La Pâtisserie
               </span>
               <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
-              nisi dolor recusandae consectetur!
+              Oferecemos deliciosos bolos e doces artesanais com um toque francês, preparados com carinho e entregues com rapidez. Peça online e aproveite nosso atendimento exclusivo! 🍰🇫🇷
             </p>
           </div>
           <div className="w-[300px] flex items-start gap-3">
@@ -91,14 +89,13 @@ const SignIn = () => {
               Aprovado por compradores on-line
               </span>
               <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
-              nisi dolor recusandae consectetur!
+              Sabor, qualidade e confiança! Nossos doces encantam clientes e fazem sucesso em cada pedido. Experimente! 💕
             </p>
           </div>
           <div className="flex items-center justify-between mt-10">
             <Link to="/">
               <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
-                © LaPatisserie
+                © La Pâtisserie
               </p>
             </Link>
             <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
@@ -119,7 +116,7 @@ const SignIn = () => {
             <p className="w-full px-4 py-10 text-green-500 font-medium font-titleFont">
               {successMsg}
             </p>
-            <Link to="/signup">
+            <Link to="/cadastrar">
               <button
                 className="w-full h-10 bg-primeColor text-gray-200 rounded-md text-base font-titleFont font-semibold 
             tracking-wide hover:bg-black hover:text-white duration-300"
@@ -183,7 +180,7 @@ const SignIn = () => {
                 </button>
                 <p className="text-sm text-center font-titleFont font-medium">
                   Não tem uma conta?{" "}
-                  <Link to="/signup">
+                  <Link to="/cadastrar">
                     <span className="hover:text-blue-600 duration-300">
                       Inscreva-se
                     </span>

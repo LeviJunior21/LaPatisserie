@@ -138,9 +138,9 @@ const SignUp = () => {
           </Link>
           <div className="flex flex-col gap-1 -mt-1">
             <h1 className="font-titleFont text-xl font-medium">
-              Comece gratuitamente
+              Cadastre-se na La Pâtisserie
             </h1>
-            <p className="text-base">Crie sua conta para acessar mais</p>
+            <p className="text-base">Experimente o melhor da confeitaria francesa sem compromisso. Sabores incríveis esperam por você! 🥖🍩</p>
           </div>
           <div className="w-[300px] flex items-start gap-3">
             <span className="text-green-500 mt-1">
@@ -148,11 +148,10 @@ const SignUp = () => {
             </span>
             <p className="text-base text-gray-300">
               <span className="text-white font-semibold font-titleFont">
-              Comece rapidamente com LaPatisserie
+              Comece rapidamente com La Pâtisserie
               </span>
               <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
-              nisi dolor recusandae consectetur!
+              Acesse nossa loja online e desfrute dos melhores bolos e doces franceses, feitos com carinho e entregues com rapidez! 🍰✨
             </p>
           </div>
           <div className="w-[300px] flex items-start gap-3">
@@ -161,11 +160,10 @@ const SignUp = () => {
             </span>
             <p className="text-base text-gray-300">
               <span className="text-white font-semibold font-titleFont">
-              Acesse todos os serviços da LaPatisserie
+              Acesse todos os serviços da La Pâtisserie
               </span>
               <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
-              nisi dolor recusandae consectetur!
+              Oferecemos deliciosos bolos e doces artesanais com um toque francês, preparados com carinho e entregues com rapidez. Peça online e aproveite nosso atendimento exclusivo! 🍰🇫🇷
             </p>
           </div>
           <div className="w-[300px] flex items-start gap-3">
@@ -177,13 +175,12 @@ const SignUp = () => {
               Aprovado por compradores on-line
               </span>
               <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
-              nisi dolor recusandae consectetur!
+              Sabor, qualidade e confiança! Nossos doces encantam clientes e fazem sucesso em cada pedido. Experimente! 💕
             </p>
           </div>
           <div className="flex items-center justify-between mt-10">
             <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
-              © LaPatisserie
+              © La Pâtisserie
             </p>
             <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
               Termos
@@ -203,7 +200,7 @@ const SignUp = () => {
             <p className="w-full px-4 py-10 text-green-500 font-medium font-titleFont">
               {successMsg}
             </p>
-            <Link to="/signin">
+            <Link to="/entrar">
               <button
                 className="w-full h-10 bg-primeColor rounded-md text-gray-200 text-base font-titleFont font-semibold 
             tracking-wide hover:bg-black hover:text-white duration-300"
@@ -379,8 +376,8 @@ const SignUp = () => {
                     type="checkbox"
                   />
                   <p className="text-sm text-primeColor">
-                    Eu concordo com a LaPatisserie{" "}
-                    <span className="text-blue-500">Termos de Serviço </span>and{" "}
+                    Eu concordo com a La Pâtisserie{" "}
+                    <span className="text-blue-500">Termos de Serviço </span>e{" "}
                     <span className="text-blue-500">Política de Privacidade</span>.
                   </p>
                 </div>
@@ -396,7 +393,7 @@ const SignUp = () => {
                 </button>
                 <p className="text-sm text-center font-titleFont font-medium">
                   Não tem uma conta?{" "}
-                  <Link to="/signin">
+                  <Link to="/entrar">
                     <span className="hover:text-blue-600 duration-300">
                       Entrar
                     </span>

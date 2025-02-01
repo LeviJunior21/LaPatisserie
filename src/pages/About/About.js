@@ -13,10 +13,10 @@ const About = () => {
       <Breadcrumbs title="Sobre" prevLocation={prevLocation} />
       <div className="pb-10">
         <h1 className="max-w-[600px] text-base text-lightText mb-2">
-          <span className="text-primeColor font-semibold text-lg">La Patisserie</span>{" "}
+          <span className="text-primeColor font-semibold text-lg">La Pâtisserie</span>{" "}
           é uma loja de confeitaria de Campina Grande que oferecem produtos que vão desde bolo, doces até bebidas.
         </h1>
-        <Link to="/shop">
+        <Link to="/loja">
           <button className="w-52 h-10 bg-primeColor text-white hover:bg-black duration-300">
             Voltar a Loja
           </button>

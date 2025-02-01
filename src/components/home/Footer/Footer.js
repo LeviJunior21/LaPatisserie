@@ -18,9 +18,9 @@ const Footer = () => {
 
   const handleSubscription = () => {
     if (emailInfo === "") {
-      setErrMsg("Please provide an Email !");
+      setErrMsg("Por favor, forneça um email!");
     } else if (!emailValidation(emailInfo)) {
-      setErrMsg("Please give a valid Email!");
+      setErrMsg("Por favor, forneça um email válido!");
     } else {
       setSubscription(true);
       setErrMsg("");
@@ -31,14 +31,14 @@ const Footer = () => {
     <div className="w-full bg-[#F5F5F3] py-20">
       <div className="max-w-container mx-auto grid grid-cols-1 md:grid-cols-2  xl:grid-cols-6 px-4 gap-10">
         <div className="col-span-2">
-          <FooterListTitle title="Mais sobre a Loja LaPatisserie" />
+          <FooterListTitle title="Mais sobre a Loja LaPâtisserie" />
           <div className="flex flex-col gap-6">
             <p className="text-base w-full xl:w-[80%]">
               Nos siga nas nossas redes sociais.
             </p>
             <ul className="flex items-center gap-2">
               <a
-                href="https://www.youtube.com/@reactjsBD"
+                href="falta inserir link"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -47,7 +47,7 @@ const Footer = () => {
                 </li>
               </a>
               <a
-                href="https://github.com/noorjsdivs"
+                href="falta inserir link"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -56,7 +56,7 @@ const Footer = () => {
                 </li>
               </a>
               <a
-                href="https://www.facebook.com/Noorlalu143/"
+                href="falta inserir link"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -65,7 +65,7 @@ const Footer = () => {
                 </li>
               </a>
               <a
-                href="https://www.linkedin.com/in/noor-mohammad-ab2245193/"
+                href="falta inserir link"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -97,7 +97,7 @@ const Footer = () => {
               Perfil
             </li>
             <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-              Peidos
+              Pedidos
             </li>
             <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
               Endereços
