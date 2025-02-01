@@ -114,29 +114,6 @@ const Header = () => {
                         </motion.ul>
                       )}
                     </div>
-                    <div className="mt-4">
-                      <h1
-                        onClick={() => setBrand(!brand)}
-                        className="flex justify-between text-base cursor-pointer items-center font-titleFont mb-2"
-                      >
-                        Shop by Brand
-                        <span className="text-lg">{brand ? "-" : "+"}</span>
-                      </h1>
-                      {brand && (
-                        <motion.ul
-                          initial={{ y: 15, opacity: 0 }}
-                          animate={{ y: 0, opacity: 1 }}
-                          transition={{ duration: 0.4 }}
-                          className="text-sm flex flex-col gap-1"
-                        >
-                          <li className="headerSedenavLi">Novidades</li>
-                          <li className="headerSedenavLi">Bolos</li>
-                          <li className="headerSedenavLi">Doces</li>
-                          <li className="headerSedenavLi">Bebidas</li>
-                          <li className="headerSedenavLi">Outros</li>
-                        </motion.ul>
-                      )}
-                    </div>
                   </div>
                   <span
                     onClick={() => setSidenav(false)}
