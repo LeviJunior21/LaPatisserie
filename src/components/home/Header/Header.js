@@ -12,7 +12,6 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(true);
   const [sidenav, setSidenav] = useState(false);
   const [category, setCategory] = useState(false);
-  const [brand, setBrand] = useState(false);
   const location = useLocation();
   useEffect(() => {
     let ResponsiveMenu = () => {

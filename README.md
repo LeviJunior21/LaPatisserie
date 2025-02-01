@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# La Pâtisserie
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**La Douceur de Campina Grande** agora também tem uma aplicação web completa para facilitar o acesso aos seus deliciosos produtos e serviços, oferecendo uma experiência de compra online inovadora e prática. Com um site moderno e responsivo, desenvolvido com tecnologias de ponta, a loja agora está mais acessível do que nunca, permitindo que os clientes façam pedidos, conheçam os produtos e personalizem suas encomendas de forma simples e rápida.
 
-## Available Scripts
+## Design e Funcionalidade
+A interface do site é cuidadosamente projetada para refletir a elegância e o charme da marca, com uma estética que remete à sofisticação francesa. Utilizando as melhores práticas de desenvolvimento front-end, o site é 100% responsivo, garantindo uma navegação fluida em desktops, tablets e smartphones.
 
-In the project directory, you can run:
+Ao acessar o site da La Douceur de Campina, os visitantes são imediatamente recebidos por uma homepage encantadora, com imagens de alta qualidade dos produtos mais populares, como o "Gâteau de Fête" e os irresistíveis "Macaron de Paris". A navegação é intuitiva, com menus organizados para que os clientes encontrem rapidamente o que procuram — seja bolos, doces, salgados ou uma combinação dos dois.
 
-### `npm start`
+## Funcionalidades do Site
+- 1. Catálogo de Produtos: O site conta com uma seção de catálogo onde todos os produtos da loja estão listados, com fotos detalhadas, descrições em francês e preços. É possível ver, por exemplo, os detalhes do "Brigadeiro au Cacao" ou o "Croquette au Poulet", e adicionar diretamente ao carrinho de compras. Cada produto vem com uma opção de personalização, onde o cliente pode escolher sabores, tamanhos e outros detalhes, como o tipo de decoração para bolos ou o recheio dos brigadeiros.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 2. Pedidos Online: O sistema de pedidos online é integrado com um back-end eficiente, permitindo que os clientes façam encomendas para festas, aniversários e outros eventos diretamente pelo site. O cliente pode escolher a data de entrega, adicionar notas especiais sobre o pedido e até solicitar uma entrega para uma localização específica. O sistema também permite pagamentos seguros através de cartões de crédito ou opções como Pix, facilitando a experiência de compra.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 3. Área de Personalização: Uma das funcionalidades mais amadas pelos clientes é a personalização de produtos. Para quem deseja tornar sua festa ainda mais especial, o site oferece a possibilidade de personalizar bolos e doces com nomes, mensagens ou temas específicos, como um bolo de aniversário com o nome do aniversariante escrito em francês, "Joyeux Anniversaire". Tudo é feito de forma simples, por meio de formulários intuitivos que permitem selecionar as preferências de sabor, cor e formato.
 
-### `npm test`
+- 4. Informações e Blog: A loja também possui uma seção de blog com dicas e sugestões para festas, incluindo receitas exclusivas, como o passo a passo para fazer um "Tarte Tatin" perfeito ou como montar a mesa de doces com "Macaron de Paris". Além disso, há uma seção de FAQ com as dúvidas mais frequentes, como prazos de entrega, políticas de devolução e orientações sobre como armazenar corretamente os produtos.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 5. Localização e Contato: Para quem deseja visitar uma das lojas físicas em Campina Grande, o site oferece uma seção de localização, com mapa interativo e informações de contato, como telefone e horário de funcionamento. Há também uma opção para agendamento de visita, onde os clientes podem marcar um horário para um atendimento personalizado, ideal para quem está planejando um evento especial.
 
-### `npm run build`
+## Tecnologia do Site
+O site foi desenvolvido utilizando as melhores ferramentas de front-end e back-end, como:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Front-end: O site é construído com React.js, garantindo uma experiência de usuário rápida e dinâmica. Com o uso de CSS Grid e Flexbox, o layout se adapta perfeitamente a diferentes tamanhos de tela, proporcionando uma navegação sem interrupções.
+- Back-end: O back-end da aplicação foi desenvolvido com Node.js e Express, garantindo que os pedidos sejam processados de forma rápida e eficiente. O banco de dados é gerenciado por MongoDB, permitindo uma organização otimizada das informações de pedidos, clientes e produtos.
+- Integração de Pagamento: O sistema de pagamento é integrado com Stripe e Pix, permitindo que os clientes paguem de maneira segura e sem complicações.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Benefícios para os Clientes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Facilidade de Acesso: O site proporciona um acesso fácil e rápido aos produtos, com uma experiência de compra online sem frustrações.
+- Entrega Rápida: Os clientes podem agendar entregas para o dia e horário desejado, garantindo que o pedido chegue no momento perfeito.
+- Suporte ao Cliente: Uma equipe de atendimento está disponível para ajudar com dúvidas e personalizações via chat ao vivo, telefone ou e-mail.
+Com o site da La Douceur de Campina, a experiência de saborear os produtos franceses da confeitaria se torna ainda mais prática e agradável, garantindo que cada evento e celebração seja marcado por sabores irresistíveis e memoráveis.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Como executar o projeto
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Siga os passos abaixo para configurar e executar o projeto:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 1. Instalar as dependências
+Execute o comando abaixo no terminal, na raiz do projeto:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm install
+```
 
-## Learn More
+E em seguida execute:
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Pré-requisitos para fazer o Deploy
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Node.js**: Certifique-se de ter uma versão superior a 16 instalada. Você pode gerenciar versões do Node.js usando o [nvm](https://github.com/nvm-sh/nvm).
 
-### Code Splitting
+- Execute o comando abaixo no terminal, na raiz do projeto para fazer deploy para o Firebase usar a versão do Node necessária
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+nvm use 18
+```
 
-### Analyzing the Bundle Size
+- Construa a aplicação com esse comando abaixo no terminal
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm run build
+```
 
-### Making a Progressive Web App
+- Inicialize o Firebase
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+firebase init
+```
 
-### Advanced Configuration
+- Suba o build para o Firebase Hosting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+firebase deploy
+```
