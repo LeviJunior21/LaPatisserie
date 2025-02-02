@@ -3,30 +3,30 @@ import logoLight from "./logoLaPatisserie.png";
 import bannerImgOne from "./banner/bannerImgOne.webp";
 import bannerImgTwo from "./banner/bannerImgTwo.webp";
 import bannerImgThree from "./banner/bannerImgThree.webp";
-import saleImgOne from "./sale/saleImgOne.webp";
-import saleImgTwo from "./sale/saleImgTwo.webp";
-import saleImgThree from "./sale/saleImgThree.webp";
+import saleImgOne from "./sale/Massa-folhada-arte1 (1) (1) (1).png";
+import saleImgTwo from "./sale/main.jpg";
+import saleImgThree from "./sale/main2.jpg";
 // ============== Products Start here ====================
 // New Arrivals
-import newArrOne from "./products/newArrival/newArrOne.webp";
-import newArrTwo from "./products/newArrival/newArrTwo.webp";
-import newArrThree from "./products/newArrival/newArrThree.webp";
-import newArrFour from "./products/newArrival/newArrFour.webp";
+import newArrOne from "./products/newArrival/lechoux.png";
+import newArrTwo from "./products/newArrival/macarons.png";
+import newArrThree from "./products/newArrival/millefeuille.png";
+import newArrFour from "./products/newArrival/moeulleaux.png";
 
 // Best Sellers
-import bestSellerOne from "./products/bestSeller/bestSellerOne.webp";
-import bestSellerTwo from "./products/bestSeller/bestSellerTwo.webp";
-import bestSellerThree from "./products/bestSeller/bestSellerThree.webp";
-import bestSellerFour from "./products/bestSeller/bestSellerFour.webp";
+import bestSellerOne from "./products/bestSeller/canele.png";
+import bestSellerTwo from "./products/bestSeller/cremebrulee.png";
+import bestSellerThree from "./products/bestSeller/crepes.png";
+import bestSellerFour from "./products/bestSeller/eclair.png";
 
 // Special Offers
-import spfOne from "./products/specialOffer/spfOne.webp";
-import spfTwo from "./products/specialOffer/spfTwo.webp";
-import spfThree from "./products/specialOffer/spfThree.webp";
-import spfFour from "./products/specialOffer/spfFour.webp";
+import spfOne from "./products/specialOffer/tarteaucitron.png";
+import spfTwo from "./products/specialOffer/tartetatin.png";
+import spfThree from "./products/specialOffer/massachoux.webp";
+import spfFour from "./products/specialOffer/fraisier.webp";
 
 // Year Product
-import productOfTheYear from "./products/productOfTheYear.webp";
+import productOfTheYear from "./products/20412_fotos_bolo_inteiro_novo_site_540x400px_a-francesa.png";
 // ============== Products End here ======================
 import paymentCard from "./payment.png";
 import emptyCart from "../images/emptyCart.png";
