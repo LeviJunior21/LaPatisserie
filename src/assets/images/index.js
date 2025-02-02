@@ -1,8 +1,8 @@
 import logo from "./logoLaPatisserie.png";
 import logoLight from "./logoLaPatisserie.png";
-import bannerImgOne from "./banner/bannerImgOne.webp";
-import bannerImgTwo from "./banner/bannerImgTwo.webp";
-import bannerImgThree from "./banner/bannerImgThree.webp";
+import bannerImgOne from "./banner/banner1.jpg";
+import bannerImgTwo from "./banner/banner2.png";
+import bannerImgThree from "./banner/banner3.png";
 import saleImgOne from "./sale/Massa-folhada-arte1 (1) (1) (1).png";
 import saleImgTwo from "./sale/main.jpg";
 import saleImgThree from "./sale/main2.jpg";
