@@ -16,36 +16,36 @@ const SpecialOffers = () => {
         <Product
           _id="1101"
           img={spfOne}
-          productName="Cap for Boys"
+          productName="Torta de Limão"
           price="35.00"
-          color="Blank and White"
+          color="Tarte au Citron"
           badge={true}
           des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
         />
         <Product
           _id="1102"
           img={spfTwo}
-          productName="Tea Table"
+          productName="Torta de Frutas"
           price="180.00"
-          color="Gray"
+          color="Tarte Tatrin"
           badge={true}
           des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
         />
         <Product
           _id="1103"
           img={spfThree}
-          productName="Headphones"
+          productName="Massa Choux"
           price="25.00"
-          color="Mixed"
+          color="Massa Choux"
           badge={true}
           des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
         />
         <Product
           _id="1104"
           img={spfFour}
-          productName="Sun glasses"
+          productName="Bolo de Morango"
           price="220.00"
-          color="Black"
+          color="Gâteau aux Fraises"
           badge={true}
           des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
         />
