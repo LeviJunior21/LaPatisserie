@@ -2,22 +2,23 @@ import React, { useState } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { logoLight } from "../../assets/images";
+import axios from "axios";
 
 const SignIn = () => {
   // ============= Initial State Start here =============
-  const [email, setEmail] = useState("");
+  const [cpf, setCpf] = useState("");
   const [password, setPassword] = useState("");
   // ============= Initial State End here ===============
   // ============= Error Msg Start here =================
-  const [errEmail, setErrEmail] = useState("");
+  const [setErrCpf] = useState("");
   const [errPassword, setErrPassword] = useState("");
 
   // ============= Error Msg End here ===================
   const [successMsg, setSuccessMsg] = useState("");
   // ============= Event Handler Start here =============
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-    setErrEmail("");
+  const handleCpf = (e) => {
+    setCpf(e.target.value);
+    setErrCpf("");
   };
   const handlePassword = (e) => {
     setPassword(e.target.value);
@@ -27,20 +28,32 @@ const SignIn = () => {
   const handleSignUp = (e) => {
     e.preventDefault();
 
-    if (!email) {
-      setErrEmail("Enter your email");
+    if (!cpf) {
+      setErrCpf("Insira o seu CPF");
     }
 
     if (!password) {
-      setErrPassword("Create a password");
+      setErrPassword("Insira a sua senha");
     }
     // ============== Getting the value ==============
-    if (email && password) {
-      setSuccessMsg(
-        `Olá querido, obrigado pela sua tentativa. Estamos processando para validar seu acesso. Até então, fique conectado e assistência adicional será enviada a você por e-mail em ${email}`
-      );
-      setEmail("");
-      setPassword("");
+    if (cpf && password) {
+      const data = {
+        cpf: cpf,
+        password: password
+      }
+      axios.post("http://localhost:3000/api/auth", data).then((result) => {
+        if (result.status === 200) {
+          setSuccessMsg(
+            `Logado com sucesso!`
+          );
+          setCpf("");
+          setPassword("");
+
+          setTimeout(() => {
+            window.location.href = "/loja";
+          }, 2000);
+      }
+      });
     }
   };
   return (
@@ -132,22 +145,21 @@ const SignIn = () => {
                 Entrar
               </h1>
               <div className="flex flex-col gap-3">
-                {/* Email */}
+                {/* CPF */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Email de Trabalho
+                    CPF
                   </p>
                   <input
-                    onChange={handleEmail}
-                    value={email}
+                    onChange={handleCpf}
+                    value={cpf}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                    type="email"
-                    placeholder="Insira o seu email"
+                    placeholder="Insira o seu CPF"
                   />
-                  {errEmail && (
+                  {setErrCpf && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
                       <span className="font-bold italic mr-1">!</span>
-                      {errEmail}
+                      {setErrCpf}
                     </p>
                   )}
                 </div>
