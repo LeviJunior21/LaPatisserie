@@ -10,7 +10,7 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   // ============= Initial State End here ===============
   // ============= Error Msg Start here =================
-  const [setErrCpf] = useState("");
+  const [errCpf, setErrCpf] = useState("");
   const [errPassword, setErrPassword] = useState("");
 
   // ============= Error Msg End here ===================
@@ -52,7 +52,16 @@ const SignIn = () => {
           setTimeout(() => {
             window.location.href = "/loja";
           }, 2000);
-      }
+        }
+      }).catch((error) => {
+        const msg = error.response?.data?.message || "Erro ao fazer login";
+        
+        if (msg === "Invalid User" || msg === "Invalid password") {
+          setErrCpf("CPF ou senha incorretos.");
+          setErrPassword("CPF ou senha incorretos.");
+        } else {
+          setErrCpf("Erro inesperado ao tentar fazer login.");
+        }
       });
     }
   };
@@ -155,11 +164,12 @@ const SignIn = () => {
                     value={cpf}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     placeholder="Insira o seu CPF"
+                    id="cpf_usuario_input"
                   />
-                  {setErrCpf && (
+                  {errCpf && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
                       <span className="font-bold italic mr-1">!</span>
-                      {setErrCpf}
+                      {errCpf}
                     </p>
                   )}
                 </div>

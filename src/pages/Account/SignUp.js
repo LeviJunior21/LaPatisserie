@@ -417,7 +417,7 @@ const SignUp = () => {
                     </p>
                   )}
                 </div>
-                {/* City */}
+                {/* State */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
                     Estado

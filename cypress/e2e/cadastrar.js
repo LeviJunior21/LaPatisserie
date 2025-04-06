@@ -12,13 +12,21 @@ describe("Tela de Cadastro", () => {
         cy.get('#nome_completo_input').type(nome);
         cy.get('#nome_completo_input').should('have.value', nome);
 
+        let username = "levipereira"
+        cy.get('#nome_usuario_input').type(username);
+        cy.get('#nome_usuario_input').should('have.value', username);
+
         let email = "levi@gmail.com"
         cy.get('#email_usuario_input').type(email);
         cy.get('#email_usuario_input').should('have.value', email);
 
-        let numero = "(83) 99999-9999"
-        cy.get('#numero_telefone_input').type(numero);
-        cy.get('#numero_telefone_input').should('have.value', numero);
+        let numero = "83999999999"
+        cy.get('#numero_telefone_usuario_input').type(numero);
+        cy.get('#numero_telefone_usuario_input').should('have.value', numero);
+
+        let cpf = "11122233345"
+        cy.get('#cpf_usuario_input').type(cpf);
+        cy.get('#cpf_usuario_input').should('have.value', cpf);
 
         let senha = "minhasenha123"
         cy.get('#senha_usuario_input').type(senha);
@@ -31,6 +39,10 @@ describe("Tela de Cadastro", () => {
         let cidade = "Campina Grande"
         cy.get('#cidade_usuario_input').type(cidade);
         cy.get('#cidade_usuario_input').should('have.value', cidade);
+
+        let uf = "PB"
+        cy.get('#estado_usuario_input').type(uf);
+        cy.get('#estado_usuario_input').should('have.value', uf);
 
         let cep = "58475000"
         cy.get('#cep_usuario_input').type(cep);
