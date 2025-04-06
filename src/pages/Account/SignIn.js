@@ -135,7 +135,7 @@ const SignIn = () => {
                 {/* Email */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Email de Trabalho
+                    Email
                   </p>
                   <input
                     onChange={handleEmail}
@@ -143,6 +143,7 @@ const SignIn = () => {
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="email"
                     placeholder="Insira o seu email"
+                    id="email_usuario_input"
                   />
                   {errEmail && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -163,6 +164,7 @@ const SignIn = () => {
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="password"
                     placeholder="Insira a sua senha"
+                    id="senha_usuario_input"
                   />
                   {errPassword && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
