@@ -1,23 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import ReactPaginate from "react-paginate";
 import Product from "../../home/Products/Product";
-import { paginationItems } from "../../../constants";
 
-const items = paginationItems;
 function Items({ currentItems }) {
+  console.log(currentItems)
   return (
     <>
       {currentItems &&
         currentItems.map((item) => (
-          <div key={item._id} className="w-full">
+          <div key={item.id} className="w-full">
             <Product
-              _id={item._id}
-              img={item.img}
-              productName={item.productName}
+              _id={item.id}
+              img={`${item.imageUrl}`}
+              name={item.name}
               price={item.price}
-              color={item.color}
-              badge={item.badge}
-              des={item.des}
+              category={item.category}
+              des={item.description}
+              promotion={item.promotion}
             />
           </div>
         ))}
@@ -26,33 +25,36 @@ function Items({ currentItems }) {
 }
 
 const Pagination = ({ itemsPerPage }) => {
-  // Here we use item offsets; we could also use page offsets
-  // following the API or data you're working with.
+  const [products, setProducts] = useState([]);
   const [itemOffset, setItemOffset] = useState(0);
   const [itemStart, setItemStart] = useState(1);
+  const [pageCount] = useState(10);
 
-  // Simulate fetching items from another resources.
-  // (This could be items from props; or items loaded in a local state
-  // from an API endpoint with useEffect and useState)
-  const endOffset = itemOffset + itemsPerPage;
-  //   console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-  const currentItems = items.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(items.length / itemsPerPage);
+  const fetchProducts = useCallback(async () => {
+    try {
+      const page = Math.floor(itemOffset / itemsPerPage) + 1;
+      const res = await fetch(`http://localhost:3000/api/products?page=${page}&size=${itemsPerPage}`);
+      const data = await res.json();
+      setProducts(data);
+    } catch (err) {
+      console.error("Erro ao buscar produtos:", err);
+    }
+  }, [itemOffset, itemsPerPage]);
 
-  // Invoke when user click to request another page.
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
+
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length;
+    const newOffset = (event.selected * itemsPerPage);
     setItemOffset(newOffset);
-    // console.log(
-    //   `User requested page number ${event.selected}, which is offset ${newOffset},`
-    // );
-    setItemStart(newOffset);
+    setItemStart(newOffset + 1);
   };
 
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 mdl:gap-4 lg:gap-10">
-        <Items currentItems={currentItems} />
+        <Items currentItems={products} />
       </div>
       <div className="flex flex-col mdl:flex-row justify-center mdl:justify-between items-center">
         <ReactPaginate
@@ -60,7 +62,7 @@ const Pagination = ({ itemsPerPage }) => {
           onPageChange={handlePageClick}
           pageRangeDisplayed={3}
           marginPagesDisplayed={2}
-          pageCount={pageCount}
+          pageCount={pageCount || 10}
           previousLabel=""
           pageLinkClassName="w-9 h-9 border-[1px] border-lightColor hover:border-gray-500 duration-300 flex justify-center items-center"
           pageClassName="mr-6"
@@ -69,8 +71,7 @@ const Pagination = ({ itemsPerPage }) => {
         />
 
         <p className="text-base font-normal text-lightText">
-          Produtos de {itemStart === 0 ? 1 : itemStart} ao {endOffset} de{" "}
-          {items.length}
+          Produtos de {itemStart} ao {itemStart + products.length - 1}
         </p>
       </div>
     </div>
