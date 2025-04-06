@@ -2,46 +2,59 @@ import React, { useState } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { logoLight } from "../../assets/images";
+import axios from "axios";
 
 const SignUp = () => {
   // ============= Initial State Start here =============
   const [clientName, setClientName] = useState("");
+  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [cpf, setCpf] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
-  const [zip, setZip] = useState("");
+  const [state, setState] = useState("");
+  const [cep, setCep] = useState("");
   const [checked, setChecked] = useState(false);
   // ============= Initial State End here ===============
   // ============= Error Msg Start here =================
   const [errClientName, setErrClientName] = useState("");
+  const [errUserName, setErrUserName] = useState("");
   const [errEmail, setErrEmail] = useState("");
-  const [errPhone, setErrPhone] = useState("");
   const [errPassword, setErrPassword] = useState("");
+  const [errPhone, setErrPhone] = useState("");
+  const [errCpf, setErrCpf] = useState("");
   const [errAddress, setErrAddress] = useState("");
   const [errCity, setErrCity] = useState("");
-  const [errCountry, setErrCountry] = useState("");
-  const [errZip, setErrZip] = useState("");
+  const [errState, setErrState] = useState("");
+  const [errCep, setErrCep] = useState("");
   // ============= Error Msg End here ===================
   const [successMsg, setSuccessMsg] = useState("");
   // ============= Event Handler Start here =============
-  const handleName = (e) => {
+  const handleClientName = (e) => {
     setClientName(e.target.value);
     setErrClientName("");
+  };
+  const handleUserName = (e) => {
+    setUserName(e.target.value);
+    setErrUserName("");
   };
   const handleEmail = (e) => {
     setEmail(e.target.value);
     setErrEmail("");
   };
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+    setErrPassword("");
+  };
   const handlePhone = (e) => {
     setPhone(e.target.value);
     setErrPhone("");
   };
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-    setErrPassword("");
+  const handleCpf = (e) => {
+    setCpf(e.target.value);
+    setErrCpf("");
   };
   const handleAddress = (e) => {
     setAddress(e.target.value);
@@ -51,13 +64,13 @@ const SignUp = () => {
     setCity(e.target.value);
     setErrCity("");
   };
-  const handleCountry = (e) => {
-    setCountry(e.target.value);
-    setErrCountry("");
+  const handleState = (e) => {
+    setState(e.target.value);
+    setErrState("");
   };
-  const handleZip = (e) => {
-    setZip(e.target.value);
-    setErrZip("");
+  const handleCep = (e) => {
+    setCep(e.target.value);
+    setErrCep("");
   };
   // ============= Event Handler End here ===============
   // ================= Email Validation start here =============
@@ -73,6 +86,9 @@ const SignUp = () => {
     if (checked) {
       if (!clientName) {
         setErrClientName("Insira o seu nome");
+      }
+      if (!clientName) {
+        setErrUserName("Insira o seu nome de usuário");
       }
       if (!email) {
         setErrEmail("Insira o seu email");
@@ -97,35 +113,59 @@ const SignUp = () => {
       if (!city) {
         setErrCity("Insira o nome da sua cidade");
       }
-      if (!country) {
-        setErrCountry("Digite o país que você reside");
+      if (!cpf) {
+        setErrCpf("Digite o CPF correto");
       }
-      if (!zip) {
-        setErrZip("Insira o CEP da sua região");
+      if (!state) {
+        setErrState("Insira o estado onde você mora");
+      }
+      if (!cep) {
+        setErrCep("Insira o cep da sua localidade");
       }
       // ============== Getting the value ==============
       if (
         clientName &&
+        userName &&
         email &&
         EmailValidation(email) &&
         password &&
         password.length >= 6 &&
         address &&
         city &&
-        country &&
-        zip
+        state &&
+        cep &&
+        cpf
       ) {
-        setSuccessMsg(
-          `Olá querido ${clientName}, Bem-vindo ao painel de administração do OREBI. Recebemos sua solicitação de inscrição. Estamos processando para validar seu acesso. Até então, fique conectado e assistência adicional será enviada a você por e-mail em ${email}`
-        );
-        setClientName("");
-        setEmail("");
-        setPhone("");
-        setPassword("");
-        setAddress("");
-        setCity("");
-        setCountry("");
-        setZip("");
+
+        const data = {
+          username: userName,
+          name: clientName,
+          email: email,
+          password: password,
+          cpf: cpf,
+          phone: phone,
+          city: city,
+          address: address,
+          state: state,
+          cep: cep
+        }
+        axios.post("http://localhost:3000/api/clients", data).then(result => {
+          if (result.status === 201) {
+            setSuccessMsg(
+              `Olá querido ${clientName}, Bem-vindo ao LaPatisserie. Você foi cadastrado com o seu email "${email}!"`
+            );
+            setClientName("");
+            setUserName("");
+            setEmail("");
+            setPhone("");
+            setPassword("");
+            setAddress("");
+            setCity("");
+            setCpf("");
+            setState("");
+            setCep("");
+          }
+        });
       }
     }
   };
@@ -222,11 +262,11 @@ const SignUp = () => {
                     Nome Completo
                   </p>
                   <input
-                    onChange={handleName}
+                    onChange={handleClientName}
                     value={clientName}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="ex.: Levi Júnior"
+                    placeholder="Insira o seu nome"
                     id="nome_completo_input"
                   />
                   {errClientName && (
@@ -236,10 +276,32 @@ const SignUp = () => {
                     </p>
                   )}
                 </div>
+
+                {/* UserName */}
+                <div className="flex flex-col gap-.5">
+                  <p className="font-titleFont text-base font-semibold text-gray-600">
+                    Nome Usuário
+                  </p>
+                  <input
+                    onChange={handleUserName}
+                    value={userName}
+                    className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
+                    type="text"
+                    placeholder="Insira o seu nome de usuário"
+                    id="nome_usuario_input"
+                  />
+                  {errUserName && (
+                    <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
+                      <span className="font-bold italic mr-1">!</span>
+                      {errUserName}
+                    </p>
+                  )}
+                </div>
+
                 {/* Email */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Email de Trabalho
+                    Email
                   </p>
                   <input
                     onChange={handleEmail}
@@ -267,12 +329,31 @@ const SignUp = () => {
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
                     placeholder="ex.: (83) 99999-9999"
-                    id="numero_telefone_input"
+                    id="numero_telefone_usuario_input"
                   />
                   {errPhone && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
                       <span className="font-bold italic mr-1">!</span>
                       {errPhone}
+                    </p>
+                  )}
+                </div>
+                <div className="flex flex-col gap-.5">
+                  <p className="font-titleFont text-base font-semibold text-gray-600">
+                    CPF
+                  </p>
+                  <input
+                    onChange={handleCpf}
+                    value={cpf}
+                    className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
+                    type="text"
+                    placeholder="ex.: 999.999.999-99"
+                    id="cpf_usuario_input"
+                  />
+                  {errCpf && (
+                    <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
+                      <span className="font-bold italic mr-1">!</span>
+                      {errCpf}
                     </p>
                   )}
                 </div>
@@ -326,7 +407,7 @@ const SignUp = () => {
                     value={city}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="Your city"
+                    placeholder="Sua cidade"
                     id="cidade_usuario_input"
                   />
                   {errCity && (
@@ -336,23 +417,43 @@ const SignUp = () => {
                     </p>
                   )}
                 </div>
-                {/* Zip code */}
+                {/* City */}
+                <div className="flex flex-col gap-.5">
+                  <p className="font-titleFont text-base font-semibold text-gray-600">
+                    Estado
+                  </p>
+                  <input
+                    onChange={handleState}
+                    value={state}
+                    className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
+                    type="text"
+                    placeholder="UF"
+                    id="estado_usuario_input"
+                  />
+                  {errState && (
+                    <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
+                      <span className="font-bold italic mr-1">!</span>
+                      {errState}
+                    </p>
+                  )}
+                </div>
+                {/* CEP */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
                     CEP/Código Postal
                   </p>
                   <input
-                    onChange={handleZip}
-                    value={zip}
+                    onChange={handleCep}
+                    value={cep}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="Your country"
+                    placeholder="Seu CEP"
                     id="cep_usuario_input"
                   />
-                  {errZip && (
+                  {errCep && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
                       <span className="font-bold italic mr-1">!</span>
-                      {errZip}
+                      {errCep}
                     </p>
                   )}
                 </div>
