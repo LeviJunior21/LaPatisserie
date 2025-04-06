@@ -1,5 +1,3 @@
-// cypress/e2e/cadastrar.cy.js
-
 describe("Tela de Cadastro", () => {
     beforeEach(() => {
         cy.visit("/cadastrar");

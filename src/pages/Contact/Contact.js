@@ -67,7 +67,7 @@ const Contact = () => {
     <div className="max-w-container mx-auto px-4">
       <Breadcrumbs title="Contato" prevLocation={prevLocation} />
       {successMsg ? (
-        <p className="pb-20 w-96 font-medium text-green-500">{successMsg}</p>
+        <p className="pb-20 w-96 font-medium text-green-500" id="mensagem_cadastro">{successMsg}</p>
       ) : (
         <form className="pb-20">
           <h1 className="font-titleFont font-semibold text-3xl">
@@ -84,6 +84,7 @@ const Contact = () => {
                 className="w-full py-1 border-b-2 px-2 text-base font-medium placeholder:font-normal placeholder:text-sm outline-none focus-within:border-primeColor"
                 type="text"
                 placeholder="Insira o seu nome aqui"
+                id="nome_completo_input"
               />
               {errClientName && (
                 <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center">
@@ -102,6 +103,7 @@ const Contact = () => {
                 className="w-full py-1 border-b-2 px-2 text-base font-medium placeholder:font-normal placeholder:text-sm outline-none focus-within:border-primeColor"
                 type="email"
                 placeholder="Insira o seu email aqui"
+                id="email_usuario_input"
               />
               {errEmail && (
                 <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center">
@@ -122,6 +124,7 @@ const Contact = () => {
                 className="w-full py-1 border-b-2 px-2 text-base font-medium placeholder:font-normal placeholder:text-sm outline-none focus-within:border-primeColor resize-none"
                 type="text"
                 placeholder="Insira a sua mensagem aqui"
+                id="mensagem_usuario_input"
               ></textarea>
               {errMessages && (
                 <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center">
@@ -133,6 +136,7 @@ const Contact = () => {
             <button
               onClick={handlePost}
               className="w-44 bg-primeColor text-gray-200 h-10 font-titleFont text-base tracking-wide font-semibold hover:bg-black hover:text-white duration-200"
+              id="enviar"
             >
               Enviar
             </button>
