@@ -9,7 +9,7 @@ import { addToCart } from "../../../redux/orebiSlice";
 
 const Product = (props) => {
   const dispatch = useDispatch();
-  const _id = props.productName;
+  const _id = props.name;
   const idString = (_id) => {
     return String(_id).toLowerCase().split(" ").join("");
   };
@@ -40,12 +40,12 @@ const Product = (props) => {
                 dispatch(
                   addToCart({
                     _id: props._id,
-                    name: props.productName,
+                    name: props.name,
                     quantity: 1,
                     image: props.img,
-                    badge: props.badge,
+                    category: props.category,
                     price: props.price,
-                    colors: props.color,
+                    promotion: props.promotion,
                   })
                 )
               }
@@ -71,12 +71,12 @@ const Product = (props) => {
       <div className="max-w-80 py-6 flex flex-col gap-1 border-[1px] border-t-0 px-4">
         <div className="flex items-center justify-between font-titleFont">
           <h2 className="text-lg text-primeColor font-bold">
-            {props.productName}
+            {props.name}
           </h2>
           <p className="text-[#767676] text-[14px]">R${props.price}</p>
         </div>
         <div>
-          <p className="text-[#767676] text-[14px]">{props.color}</p>
+          <p className="text-[#767676] text-[14px]">{props.category}</p>
         </div>
       </div>
     </div>
