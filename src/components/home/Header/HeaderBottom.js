@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { paginationItems } from "../../../constants";
 import { Provider } from "../../../Provider";
+import { setTokenCookie } from "../../../pages/Account/Cookie";
 
 const HeaderBottom = () => {
   const products = useSelector((state) => state.orebiReducer.products);
@@ -39,6 +40,11 @@ const HeaderBottom = () => {
     );
     setFilteredProducts(filtered);
   }, [searchQuery]);
+
+  const sair = () => {
+    setToken("");
+    setTokenCookie("");
+  }
 
   return (
     <div className="w-full bg-[#F5F5F3] relative">
@@ -147,9 +153,10 @@ const HeaderBottom = () => {
                   </li>:<></>
                   }
                 </Link>
-                <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Perfil
-                </li>
+                {token !== ""?
+                <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer" onClick={() => sair()}>
+                  Sair
+                </li>:<></>}
               </motion.ul>
             )}
             <Link to="/carrinho">
