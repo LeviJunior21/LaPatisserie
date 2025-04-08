@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { logoLight } from "../../assets/images";
 import axios from "axios";
+import { setTokenCookie } from "./Cookie";
+import { Provider } from "../../Provider";
 
 const SignIn = () => {
   // ============= Initial State Start here =============
@@ -12,6 +14,7 @@ const SignIn = () => {
   // ============= Error Msg Start here =================
   const [errCpf, setErrCpf] = useState("");
   const [errPassword, setErrPassword] = useState("");
+  const { token, setToken } = useContext(Provider);
 
   // ============= Error Msg End here ===================
   const [successMsg, setSuccessMsg] = useState("");
@@ -43,15 +46,11 @@ const SignIn = () => {
       }
       axios.post("http://localhost:3000/api/auth", data).then((result) => {
         if (result.status === 200) {
-          setSuccessMsg(
-            `Logado com sucesso!`
-          );
+          setSuccessMsg(`Logado com sucesso!`);
           setCpf("");
           setPassword("");
-
-          setTimeout(() => {
-            window.location.href = "/loja";
-          }, 2000);
+          setToken(result.data.token);
+          setTokenCookie(result.data.token);
         }
       }).catch((error) => {
         const msg = error.response?.data?.message || "Erro ao fazer login";
@@ -138,12 +137,12 @@ const SignIn = () => {
             <p className="w-full px-4 py-10 text-green-500 font-medium font-titleFont">
               {successMsg}
             </p>
-            <Link to="/cadastrar">
+            <Link to={token !== ""? "/loja":"/cadastrar"}>
               <button
                 className="w-full h-10 bg-primeColor text-gray-200 rounded-md text-base font-titleFont font-semibold 
             tracking-wide hover:bg-black hover:text-white duration-300"
               >
-                Inscrever-se
+                {token !== ""? "Ir para a loja":"Inscrever-se"}
               </button>
             </Link>
           </div>

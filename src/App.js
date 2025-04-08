@@ -22,6 +22,10 @@ import Offer from "./pages/Offer/Offer";
 import Payment from "./pages/payment/Payment";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Shop from "./pages/Shop/Shop";
+import { useEffect, useState } from "react";
+import { Provider } from "./Provider";
+import { getToken } from "./pages/Account/Cookie";
+import axios from "axios";
 
 const Layout = () => {
   return (
@@ -59,10 +63,44 @@ const router = createBrowserRouter(
 );
 
 function App() {
+  const [token, setToken] = useState("");
+  const [usuario, setUsuario] = useState({
+    name: "", 
+    username: "", 
+    id: "", 
+    password: "", 
+    cpf: "", 
+    email: "", 
+    phone: "", 
+    address: "", 
+    city: "", 
+    state: "", 
+    cep: ""
+});
+
+  useEffect(() => {
+    setToken(getToken());
+    if (token) {
+      axios.get("http://localhost:3000/api/clients/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      .then((res) => {
+        console.log(res.data)
+        setUsuario(res.data)
+      })
+      .catch((err) => {
+        console.error("Erro ao buscar perfil:", err);
+      });    }
+  }, [setToken, token])
+
   return (
-    <div className="font-bodyFont">
-      <RouterProvider router={router} />
-    </div>
+    <Provider.Provider value={{token, setToken, usuario, setUsuario}}>
+      <div className="font-bodyFont">
+        <RouterProvider router={router} />
+      </div>
+    </Provider.Provider>
   );
 }
 

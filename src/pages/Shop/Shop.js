@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Breadcrumbs from "../../components/pageProps/Breadcrumbs";
 import Pagination from "../../components/pageProps/shopPage/Pagination";
 import ProductBanner from "../../components/pageProps/shopPage/ProductBanner";
 import ShopSideNav from "../../components/pageProps/shopPage/ShopSideNav";
+import { Provider } from "../../Provider";
 
 const Shop = () => {
   const [itemsPerPage, setItemsPerPage] = useState(12);
+  const {token, setToken} = useContext(Provider);
   const itemsPerPageFromBanner = (itemsPerPage) => {
     setItemsPerPage(itemsPerPage);
   };
+
+  useEffect(() => {
+    console.log(token);
+  }, [token, setToken]);
 
   return (
     <div className="max-w-container mx-auto px-4">
